@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="267*"/>
+            <ColumnDefinition Width="266*"/>
+            <ColumnDefinition Width="267*"/>
+
+        </Grid.ColumnDefinitions>
+        <Image HorizontalAlignment="Left" Height="100" Margin="152,70,0,0" VerticalAlignment="Top" Width="68" Source="/robot.png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="152,190,0,0" VerticalAlignment="Top" Width="68" Source="/household-robot.png"/>
+        <Image HorizontalAlignment="Left" Height="84" Margin="152,316,0,0" VerticalAlignment="Top" Width="68" Source="/delivery-robot.png"/>
+        <RadioButton x:Name="AllRbtRB" Content="ALL ROBOTS" HorizontalAlignment="Left" Margin="24,104,0,0" VerticalAlignment="Top" Checked="AllRbtRB_Checked"/>
+        <RadioButton x:Name="HouseRbtRB" Content="HOUSEHOLD" HorizontalAlignment="Left" Margin="24,222,0,0" VerticalAlignment="Top" Checked="HouseRbtRB_Checked"/>
+        <RadioButton x:Name="DeliRbtRB" Content="DELIVERY
+                     " HorizontalAlignment="Left" Margin="24,342,0,0" VerticalAlignment="Top" Checked="DeliRbtRB_Checked"/>
+        <Label Content="Filter" HorizontalAlignment="Left" Margin="97,10,0,0" VerticalAlignment="Top" Height="67" Width="123" FontSize="30"/>
+        <Label Content="Robot List" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="67" Width="142" FontSize="30" Grid.Column="1"/>
+        <Label Content="Robot Details" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" Height="67" Width="190" FontSize="30" Grid.Column="2"/>
+        <ListBox x:Name="Lbx" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="17,70,17,160" Loaded="Lbx_Loaded"/>
+        <TextBox x:Name="TxBx" Grid.Column="2" HorizontalAlignment="Left" Margin="13,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="231" Height="204"/>
+        <Button x:Name="ChargeBtn" Grid.Column="2" Content="Charge" HorizontalAlignment="Center" Margin="0,392,0,0" VerticalAlignment="Top" Width="128"/>
 
     </Grid>
 </Window>

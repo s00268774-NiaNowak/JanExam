@@ -20,5 +20,61 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        public void Lbx_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            //load all robots into the listbox
+            robotCreation robotFactory = new robotCreation();
+            List<Robot> robots = robotFactory.CreateRobots();
+            Lbx.ItemsSource = robots;
+
+            //whatever is selected in the listbox show the description in the textblock
+            Lbx.SelectionChanged += (s, ev) =>
+            {
+                Robot selectedRobot = (Robot)Lbx.SelectedItem;
+                if (selectedRobot != null)
+                {
+                    TxBx.Text = selectedRobot.DescribeRobot();
+                }
+            };
+
+            //if household radio button is checked show only household robots in the listbox
+            if (HouseRbtRB.IsChecked == true)
+            {
+                Lbx.ItemsSource = robots.Where(r => r is HouseholdRobot).ToList();
+            }
+            //if delivery radio button is checked show only delivery robots in the listbox
+            else if (DeliRbtRB.IsChecked == true)
+            {
+                Lbx.ItemsSource = robots.Where(r => r is DeliveryRobot).ToList();
+            }
+            else if (AllRbtRB.IsChecked == true)
+            {
+                Lbx.ItemsSource = robots;
+            }
+
+
+        }
+
+        public void AllRbtRB_Checked(object sender, RoutedEventArgs e)
+        {
+            //in listbox show all robots
+
+
+        }
+
+        public void HouseRbtRB_Checked(object sender, RoutedEventArgs e)
+        {
+            //in listbox show only household robots
+
+        }
+
+        public void DeliRbtRB_Checked(object sender, RoutedEventArgs e)
+        {
+            //in listbox show only delivery robots
+        }
+
+        
     }
 }
