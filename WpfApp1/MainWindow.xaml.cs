@@ -11,9 +11,7 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// https://github.com/s00268774-NiaNowak/JanExam/tree/Test
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -82,11 +80,21 @@ namespace WpfApp1
             Robot selectedRobot = (Robot)Lbx.SelectedItem;
             if (selectedRobot != null)
             {
+                //create a messagebox to show how long a charge has taken
+                MessageBox.Show($"Charging {selectedRobot.RobotName}...\n" +
+                    $"Charge Complete!\n" +
+                    $"It took {selectedRobot.PowerCapacityKWH / 0.5} hours to fully charge.", "Charge Complete", MessageBoxButton.OK, MessageBoxImage.Information);
                 selectedRobot.CurrentPowerKWH = selectedRobot.PowerCapacityKWH;
                 //update the textblock with the new battery information
                 TxBx.Text = selectedRobot.DescribeRobot();
 
+                if (selectedRobot.GetBatteryPercentage() == 100)
+                {
+                    MessageBox.Show($"{selectedRobot.RobotName}'s battery is now full.", "Battery Full", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
             }
+
         }
     }
 }

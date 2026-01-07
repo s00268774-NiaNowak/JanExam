@@ -20,5 +20,13 @@ namespace WpfApp1
                 $"{DisplayBatteryInformation()}";
 
         }
+        //create a method to add skills to the robot
+        public void AddSkill(HouseHoldSkill skill)
+        {
+            if (!skills.Contains(skill))
+            {
+                skills.Add(skill);
+            }
+        }
     }
 }
