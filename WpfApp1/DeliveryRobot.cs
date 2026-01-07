@@ -13,7 +13,7 @@ namespace WpfApp1
         //MaxLoadKg (double)
         private double maxLoadKg;
 
-        public DeliveryRobot(string robotName, string robotType, double powerCapacityKWH) : base(robotName, robotType, powerCapacityKWH)
+        public DeliveryRobot(string robotName, string robotType, double powerCapacityKWH, double maxLoadKg) : base(robotName, robotType, powerCapacityKWH)
         {
         }
 
@@ -21,9 +21,9 @@ namespace WpfApp1
         public override string DescribeRobot()
         {
             string baseDescription = base.DescribeRobot();
-            return $"I am a Delivery robot,\n" +
+            return $"I am a Delivery robot my name is {RobotName},\n" +
                 $"I specialise in delivery by {modeOfDelivery}.\n" +
-                $"The maximum load I can carrt is {maxLoadKg} kg\n" +
+                $"The maximum load I can carry is {maxLoadKg} kg\n" +
                 $"{DisplayBatteryInformation()}";
         }
         

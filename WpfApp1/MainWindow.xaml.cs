@@ -24,9 +24,9 @@ namespace WpfApp1
         public void Lbx_Loaded(object sender, RoutedEventArgs e)
         {
 
-            //load all robots into the listbox
-            robotCreation robotFactory = new robotCreation();
-            List<Robot> robots = robotFactory.CreateRobots();
+            //load all robots into the listbox with names, types, skills, delivery modes, and max loads
+            robotCreation robotCreator = new robotCreation();
+            List<Robot> robots = robotCreator.CreateRobots();
             Lbx.ItemsSource = robots;
 
             //whatever is selected in the listbox show the description in the textblock
@@ -53,7 +53,6 @@ namespace WpfApp1
             {
                 Lbx.ItemsSource = robots;
             }
-            //test
 
         }
 
@@ -75,6 +74,19 @@ namespace WpfApp1
             //in listbox show only delivery robots
         }
 
-        
+        private void ChargeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //charge the selected robot in the listbox
+            //get the selected robot
+            //set its CurrentPowerKWH to its PowerCapacityKWH
+            Robot selectedRobot = (Robot)Lbx.SelectedItem;
+            if (selectedRobot != null)
+            {
+                selectedRobot.CurrentPowerKWH = selectedRobot.PowerCapacityKWH;
+                //update the textblock with the new battery information
+                TxBx.Text = selectedRobot.DescribeRobot();
+
+            }
+        }
     }
 }

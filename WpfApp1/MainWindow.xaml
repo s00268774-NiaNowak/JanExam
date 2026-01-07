@@ -25,7 +25,7 @@
         <Label Content="Robot Details" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" Height="67" Width="190" FontSize="30" Grid.Column="2"/>
         <ListBox x:Name="Lbx" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="17,70,17,160" Loaded="Lbx_Loaded"/>
         <TextBox x:Name="TxBx" Grid.Column="2" HorizontalAlignment="Left" Margin="13,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="231" Height="204"/>
-        <Button x:Name="ChargeBtn" Grid.Column="2" Content="Charge" HorizontalAlignment="Center" Margin="0,392,0,0" VerticalAlignment="Top" Width="128"/>
+        <Button x:Name="ChargeBtn" Grid.Column="2" Content="Charge" Margin="81,392,80,0" Height="32" VerticalAlignment="Top" Click="ChargeBtn_Click"/>
 
     </Grid>
 </Window>

@@ -15,7 +15,7 @@ namespace WpfApp1
         {
             //make sure stackoverflow does not happen
             string baseDescription = base.DescribeRobot();
-            return $"I am a Household robot,\n" +
+            return $"I am a Household robot my name is {RobotName},\n" +
                 $"I have the following skills: {string.Join(", ", skills)}.\n" +
                 $"{DisplayBatteryInformation()}";
 
