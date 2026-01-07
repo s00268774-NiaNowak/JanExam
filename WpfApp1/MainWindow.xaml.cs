@@ -53,7 +53,7 @@ namespace WpfApp1
             {
                 Lbx.ItemsSource = robots;
             }
-
+            //test
 
         }
 
